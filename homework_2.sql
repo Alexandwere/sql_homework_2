@@ -24,7 +24,7 @@ group by e.city;
 select t1.full_name, sum(round((od.unit_price * od.quantity)::numeric , 2)) as summary_price
 from (select concat(e.last_name, ' ', e.first_name) as full_name, e.employee_id
 	from employees e) as t1 inner join orders o on t1.employee_id = o.employee_id 
-							inner join order_details od on od.order_id = o.order_id
+	inner join order_details od on od.order_id = o.order_id
 group by t1.full_name;
 	
 /*3.5. Показать перечень товаров от самых продаваемых до самых непродаваемых 
